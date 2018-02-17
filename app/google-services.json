@@ -36,6 +36,50 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462642833765:android:4d2e13520029c200",
+        "android_client_info": {
+          "package_name": "com.linkedpizza.copay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462642833765-fl6ugn96h8gi6qclgr5vee7362cn80hs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linkedpizza.copay",
+            "certificate_hash": "32410ac19a617fa98d75993e31e4b5daf0f95a66"
+          }
+        },
+        {
+          "client_id": "462642833765-e27d1opsh8851c1qlm12ciqe0laarttn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDvqfwS73pS1MOFBbfSiZOTYwYYjgzYrg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462642833765-e27d1opsh8851c1qlm12ciqe0laarttn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"
