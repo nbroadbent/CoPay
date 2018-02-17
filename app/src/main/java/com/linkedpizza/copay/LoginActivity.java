@@ -1,8 +1,10 @@
 package com.linkedpizza.copay;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -35,6 +37,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ConstraintLayout cl = findViewById(R.id.cl);
+        cl.setBackgroundColor(Color.parseColor("#ecf0f1"));
 
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
 
