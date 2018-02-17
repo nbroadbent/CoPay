@@ -46,6 +46,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "462642833765-r9fnartpi16o0kutuugp4hv4oddibrc5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linkedpizza.copay",
+            "certificate_hash": "fecdbee9531ad847a6ad7fde10ceaaff5cb999c8"
+          }
+        },
+        {
           "client_id": "462642833765-fl6ugn96h8gi6qclgr5vee7362cn80hs.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
