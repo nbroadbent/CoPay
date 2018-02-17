@@ -88,8 +88,12 @@ public class LoginActivity extends AppCompatActivity {
         // Welcome user and move to main activity.
         //Toast.makeText(LoginActivity.this, "Welcome " + user.getFirstName() + "!", Toast.LENGTH_LONG).show();
         Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+        mainActivity.putExtra("name",displayName);
+        mainActivity.putExtra("email",email);
         startActivity(mainActivity);
     }
+    String displayName;
+    String email;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -102,7 +106,13 @@ public class LoginActivity extends AppCompatActivity {
                 // Google auth complete; start Firebase auth.
                 GoogleSignInAccount googleSignInAccount = googleSignInResult.getSignInAccount();
                 makeToast("Google authentication success.");
+
+                displayName = googleSignInAccount.getDisplayName();
+                email= googleSignInAccount.getEmail();
+
+                //makeToast(displayName + ":" + email);
                 onLoginComplete();
+
 
             }
             else{

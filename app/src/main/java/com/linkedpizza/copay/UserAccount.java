@@ -27,4 +27,9 @@ class UserAccount {
     protected String getEmail(){
         return email;
     }
+
+    public String toString(){
+        return "Email: " + email+'\n' + "Name: " + name;
+
+    }
 }
