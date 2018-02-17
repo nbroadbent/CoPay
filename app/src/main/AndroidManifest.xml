@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="CoPay"></activity>
     </application>
 
 </manifest>
