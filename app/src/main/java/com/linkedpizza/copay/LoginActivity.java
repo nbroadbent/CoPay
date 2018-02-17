@@ -95,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
         mainActivity.putExtra("name",displayName);
         mainActivity.putExtra("email",email);
+        Intent naviActivity = new Intent(getApplicationContext(), NavigationDrawer.class);
         startActivity(mainActivity);
     }
     String displayName;
