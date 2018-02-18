@@ -138,6 +138,12 @@
                     android:orientation="vertical"
                     android:textAlignment="center">
 
+                    <Button
+                        android:id="@+id/server_test"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Button" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

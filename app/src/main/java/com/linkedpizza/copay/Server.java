@@ -26,7 +26,7 @@ class Server{
     private Server(){}
 
     protected void post(String url, String json) throws IOException {
-        SendJson sendJson = new SendJson(url+":80/q?", json);
+        SendJson sendJson = new SendJson(url, json);
         sendJson.execute();
     }
 
@@ -35,7 +35,7 @@ class Server{
                 + "'amount':" + amount + ","
                 + "'reason':" + reason + ","
                 + "'user':["
-                + "{'name':'" + name + "','email':" + email + ",]}";
+                + "{'name':'" + name + "','email':" + email + ",]}}";
     }
 
     String run(String url) throws IOException {
@@ -75,11 +75,11 @@ class Server{
             // Send json to server.
             RequestBody body = RequestBody.create(JSON, json);
             Request request = new Request.Builder()
-                    .url(url)
+                    .url(url + json)
                     .post(body)
                     .build();
             try {
-                System.out.println("post");
+                System.out.println("post at " + request);
                 Response response = client.newCall(request).execute();
 
                 System.out.println("post: " + response.body().string());

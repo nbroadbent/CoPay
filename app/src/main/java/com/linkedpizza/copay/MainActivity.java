@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private Server server;
     Button btnDonate;
+    Button test;
     EditText edamount;
     String amount ;
     String email;
@@ -86,6 +87,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         name=getIntent().getExtras().getString("name");
         photoURL=getIntent().getExtras().getString("photoURL");
         user = new UserAccount(name,email);
+
+        String json = server.requestJson(name, email, null, "usersData", null);
+        try {
+            server.post("http://159.203.1.125:80/", json);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
         makeToast("Welcome" +"\n" + user.toString());
         //makeToast(photoURL);
@@ -223,6 +231,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         host.getTabWidget().getChildAt(host.getCurrentTab())
                 .setBackgroundColor(Color.parseColor("#95a5a6")); // selected
         setTitle("Pool Funds:"); // add pool funds
+
+        test = findViewById(R.id.server_test);
+
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String json = server.requestJson(name, email, amount, "informal", "reason");
+
+                try {
+                    server.post("http://159.203.1.125:80", json);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+        });
 
     }
     @Override
