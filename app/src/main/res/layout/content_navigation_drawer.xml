@@ -48,7 +48,22 @@
                         android:layout_marginEnd="35dp"
                         android:layout_marginStart="35dp"
                         android:layout_marginTop="50dp"
-                        android:text="Make a donation to the pool fund. Even a dollar can make a difference to someone who needs it." />
+                        android:text="Even a dollar can make a difference to someone who needs it."
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/textView2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="35dp"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="50dp"
+                        android:text="Make a donation to the pool fund."
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp" />
 
                     <EditText
                         android:id="@+id/amount"
@@ -61,7 +76,7 @@
                         android:layout_marginStart="50dp"
                         android:layout_marginTop="30dp"
                         android:ems="10"
-                        android:hint="Amount"
+                        android:hint="Amount ($)"
                         android:inputType="numberDecimal" />
 
                     <Button
