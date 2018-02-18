@@ -1,5 +1,6 @@
 package com.linkedpizza.copay;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -90,6 +92,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .centerCrop()
                     .into(userImage);
         }
+        //Reference
+        //http://www.viralandroid.com/2015/09/simple-android-tabhost-and-tabwidget-example.html
+        //tabs
+        TabHost host = (TabHost)findViewById(R.id.tabHost);
+        host.setup();
+
+        //Tab 1
+        TabHost.TabSpec spec = host.newTabSpec("Donate");
+        spec.setContent(R.id.tab1);
+        spec.setIndicator("Donate");
+        host.addTab(spec);
+
+        //Tab 2
+        spec = host.newTabSpec("Request");
+        spec.setContent(R.id.tab2);
+        spec.setIndicator("Request");
+        host.addTab(spec);
+
+        //Tab 3
+        spec = host.newTabSpec("Pool");
+        spec.setContent(R.id.tab3);
+        spec.setIndicator("Pool");
+        host.addTab(spec);
 
     }
     @Override
@@ -130,8 +155,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_logout) {
+            logout();
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -151,6 +176,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void makeToast(String s){
         Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+    }
+    private void logout(){
+        // Get confirmation
+        Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(loginIntent);
+        makeToast("logout");
+        finish();
     }
 
     private class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
