@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 displayName = googleSignInAccount.getDisplayName();
                 email= googleSignInAccount.getEmail();
-                
+
                 if (googleSignInAccount.getPhotoUrl() != null)
                     photoURL= googleSignInAccount.getPhotoUrl().toString();
 
