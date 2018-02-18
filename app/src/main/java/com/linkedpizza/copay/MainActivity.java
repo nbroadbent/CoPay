@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -134,6 +136,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(getApplicationContext(), tabId, Toast.LENGTH_SHORT).show();
             }
         });
+
+        ArrayList<UserAccount> users = new ArrayList<UserAccount>();
+
+        for (int i = 0; i < 10; i++) {
+            users.add(new UserAccount("David Goguen", "dgogu058@uottawa.ca"));
+        }
+
+        TopContributorAdapter adapter = new TopContributorAdapter(getApplicationContext(), users);
+        ((ListView) findViewById(R.id.lstTopContributors)).setAdapter(adapter);
 
 
     }
