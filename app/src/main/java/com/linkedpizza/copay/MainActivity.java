@@ -47,10 +47,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         photoURL=getIntent().getExtras().getString("photoURL");
         user = new UserAccount(name,email);
 
-
-
-
-
         makeToast("Welcome" +"\n" + user.toString());
         makeToast(photoURL);
 
