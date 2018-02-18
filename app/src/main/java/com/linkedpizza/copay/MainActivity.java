@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Downloader;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -87,11 +88,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Picasso.with(MainActivity.this).load(photoURL).into(img);
 
             ImageView userImage = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.profilePicture);
+
             Picasso.with(getApplicationContext())
                     .load(photoURL)
                     .resize(200, 200)
                     .centerCrop()
+                    .transform(new CircleTransform())
                     .into(userImage);
+
         }
         //Reference
         //http://www.viralandroid.com/2015/09/simple-android-tabhost-and-tabwidget-example.html
