@@ -8,19 +8,14 @@
     tools:context="com.linkedpizza.copay.NavigationDrawer"
     tools:showIn="@layout/app_bar_navigation_drawer">
 
-    <ImageView
-        android:id="@+id/testImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:srcCompat="@android:drawable/ic_lock_lock" />
-
     <TabHost
         android:id="@+id/tabHost"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="124dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,16 +36,45 @@
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+<<<<<<< HEAD
                     android:background="#da8200"
+=======
+                    android:background="#5b89ff"
+>>>>>>> ad3ed2f8dffa25ff83649ba5190df06e3e762e0a
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/textView2"
                         android:layout_width="match_parent"
+<<<<<<< HEAD
                         android:layout_height="92dp"
                         android:text="This is tab 2" />
 
                     <Button
                         android:id="@+id/request"
+=======
+                        android:layout_height="wrap_content"
+                        android:text="Need a few dollars?" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="264dp" />
+
+                    <EditText
+                        android:id="@+id/amount2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="Amount:" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="71dp" />
+
+                    <Button
+                        android:id="@+id/request2"
+>>>>>>> ad3ed2f8dffa25ff83649ba5190df06e3e762e0a
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Request Funds" />
@@ -60,8 +84,14 @@
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+<<<<<<< HEAD
                     android:background="#ffc916"
                     android:orientation="vertical">
+=======
+                    android:background="#da8200"
+                    android:orientation="vertical"
+                    android:textAlignment="center">
+>>>>>>> ad3ed2f8dffa25ff83649ba5190df06e3e762e0a
 
                     <TextView
                         android:layout_width="match_parent"
@@ -74,15 +104,77 @@
                     android:id="@+id/tab3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#5b89ff"
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/txtDailyContributions"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="This is tab 3" />
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:paddingTop="10dp"
+                        android:text="Average Daily Contributions:"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txtAverageContributionValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:paddingBottom="10dp"
+                        android:text="Average Contribution Value:"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txtTopContributors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:paddingBottom="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Top Contributors:"
+                        android:textColor="@android:color/white" />
+
+                    <ListView
+                        android:id="@+id/lstTopContributors"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
                 </LinearLayout>
+
             </FrameLayout>
         </LinearLayout>
     </TabHost>
+    <!--TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tabHost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1" />
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-4dp"
+                android:layout_weight="0" />
+
+        </LinearLayout>
+
+    </TabHost-->
 </android.support.constraint.ConstraintLayout>
