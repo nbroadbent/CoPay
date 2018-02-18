@@ -55,10 +55,10 @@
                         android:id="@+id/textView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/textView2"
+                        android:layout_alignEnd="@+id/amount"
                         android:layout_alignParentTop="true"
-                        android:layout_alignRight="@+id/textView2"
-                        android:layout_marginTop="20dp"
+                        android:layout_alignRight="@+id/amount"
+                        android:layout_marginTop="22dp"
                         android:text="Make a donation to the pool fund."
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
