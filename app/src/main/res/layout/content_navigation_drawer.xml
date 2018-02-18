@@ -8,13 +8,6 @@
     tools:context="com.linkedpizza.copay.NavigationDrawer"
     tools:showIn="@layout/app_bar_navigation_drawer">
 
-    <ImageView
-        android:id="@+id/testImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:srcCompat="@android:drawable/ic_lock_lock" />
-
     <TabHost
         android:id="@+id/tabHost"
         android:layout_width="match_parent"
@@ -45,68 +38,57 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp" />
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/txtPoolFunds"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:background="@color/colorPrimaryDark"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Pool Funds:"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp" />
 
-                        <TextView
-                            android:id="@+id/poolFunds"
-                            android:layout_width="match_parent"
-                            android:layout_height="51dp"
-                            android:layout_weight="1"
-                            android:text="Pool Funds:"
-                            android:textAlignment="center"
-                            android:textSize="24sp"
-                            android:visibility="visible"
-                            tools:layout_editor_absoluteY="455dp" />
-
-                        <TextView
-                            android:id="@+id/poolFundsValue"
-                            android:layout_width="match_parent"
-                            android:layout_height="51dp"
-                            android:layout_weight="1"
-                            android:text="$200"
-                            android:textSize="24sp"
-                            android:visibility="visible"
-                            tools:layout_editor_absoluteY="455dp" />
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp" />
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/txtDailyContributions"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="3dp"
+                        android:background="@color/colorPrimary"
+                        android:paddingTop="10dp"
+                        android:text="Average Daily Contributions:"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/avgFunds"
-                            android:layout_width="match_parent"
-                            android:layout_height="51dp"
-                            android:layout_weight="1"
-                            android:text="Avg Daily Contri"
-                            android:textAlignment="center"
-                            android:textSize="24sp"
-                            android:visibility="visible"
-                            tools:layout_editor_absoluteY="455dp" />
+                    <TextView
+                        android:id="@+id/txtAverageContributionValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:paddingBottom="10dp"
+                        android:text="Average Contribution Value:"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/avgFundsValue"
-                            android:layout_width="match_parent"
-                            android:layout_height="51dp"
-                            android:layout_weight="1"
-                            android:text="$158"
-                            android:textSize="24sp"
-                            android:visibility="visible"
-                            tools:layout_editor_absoluteY="455dp" />
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/txtTopContributors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:background="@android:color/holo_green_dark"
+                        android:paddingBottom="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Top Contributors:"
+                        android:textColor="@android:color/white" />
+
+                    <ListView
+                        android:id="@+id/lstTopContributors"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
                 </LinearLayout>
 
@@ -115,7 +97,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#da8200"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:textAlignment="center">
 
                     <TextView
                         android:layout_width="match_parent"
