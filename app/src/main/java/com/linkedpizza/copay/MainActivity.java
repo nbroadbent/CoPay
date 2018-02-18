@@ -2,6 +2,8 @@ package com.linkedpizza.copay;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Reference
         //http://www.viralandroid.com/2015/09/simple-android-tabhost-and-tabwidget-example.html
         //tabs
-        TabHost host = (TabHost)findViewById(R.id.tabHost);
+        final TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
         TabHost.TabSpec spec;
         Intent intent; // Reusable Intent for each tab
@@ -134,6 +136,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onTabChanged(String tabId) {
                 // display the name of the tab whenever a tab is changed
                 Toast.makeText(getApplicationContext(), tabId, Toast.LENGTH_SHORT).show();
+                for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
+                    host.getTabWidget().getChildAt(i)
+                            .setBackgroundColor(Color.parseColor("#2c3e50")); // unselected
+                }
+
+                host.getTabWidget().getChildAt(host.getCurrentTab())
+                        .setBackgroundColor(Color.parseColor("#95a5a6")); // selected
+
+
             }
         });
 
@@ -145,6 +156,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         TopContributorAdapter adapter = new TopContributorAdapter(getApplicationContext(), users);
         ((ListView) findViewById(R.id.lstTopContributors)).setAdapter(adapter);
+
+        for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
+            TextView tv = (TextView) host.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
+            tv.setTextColor(Color.parseColor("#ecf0f1"));
+            tv.setTextSize(16);
+            tv.setTypeface(Typeface.SANS_SERIF);
+        }
+        for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
+            host.getTabWidget().getChildAt(i)
+                    .setBackgroundColor(Color.parseColor("#2c3e50")); // unselected
+        }
+
+        host.getTabWidget().getChildAt(host.getCurrentTab())
+                .setBackgroundColor(Color.parseColor("#95a5a6")); // selected
 
 
     }
