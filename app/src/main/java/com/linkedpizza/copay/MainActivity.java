@@ -137,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //spec.setContent(intent);
         host.addTab(spec);
 
-<<<<<<< HEAD
         request = (Button) findViewById(R.id.request);
 
         if (request != null) {
@@ -155,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
         }
-=======
         host.setCurrentTab(1);
         host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
@@ -196,9 +194,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         host.getTabWidget().getChildAt(host.getCurrentTab())
                 .setBackgroundColor(Color.parseColor("#95a5a6")); // selected
-
-
->>>>>>> ad3ed2f8dffa25ff83649ba5190df06e3e762e0a
     }
     @Override
     public void onBackPressed() {
