@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/profile"
+            android:title="Profile" />
+        <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/logout96"
             android:title="Log Out" />
@@ -23,10 +27,6 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Slideshow"
             android:visible="false" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Settings" />
     </group>
 
     <item android:title="Communicate">

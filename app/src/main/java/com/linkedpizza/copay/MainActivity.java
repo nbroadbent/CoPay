@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onTabChanged(String tabId) {
                 // display the name of the tab whenever a tab is changed
-                Toast.makeText(getApplicationContext(), tabId, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), tabId, Toast.LENGTH_SHORT).show();
                 for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
                     host.getTabWidget().getChildAt(i)
                             .setBackgroundColor(Color.parseColor("#2c3e50")); // unselected
@@ -234,11 +234,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_logout) {
             logout();
-        } else if (id == R.id.nav_gallery) {
+        }
+        else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
+            Intent i = new Intent(getApplicationContext(),ProfileActivity.class);
+            i.putExtra("photoURL",photoURL);
+            startActivity(i);
 
         } else if (id == R.id.nav_share) {
 
