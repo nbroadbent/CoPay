@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         getSupportActionBar().hide();
-        
+
         ConstraintLayout cl = findViewById(R.id.cl);
         cl.setBackgroundColor(Color.parseColor("#ecf0f1"));
 
