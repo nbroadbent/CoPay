@@ -97,31 +97,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //tabs
         TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
-
+        TabHost.TabSpec spec;
         Intent intent; // Reusable Intent for each tab
 
         //Tab 1
-        TabHost.TabSpec spec = host.newTabSpec("Donate");
+        spec = host.newTabSpec("Donate");
         spec.setContent(R.id.tab1);
-        spec.setIndicator("Donate");
+        spec.setIndicator("DONATE");
+        //intent = new Intent(this, DonateActivity.class);
+        //spec.setContent(intent);
         host.addTab(spec);
 
         //Tab 2
         spec = host.newTabSpec("Request");
         spec.setContent(R.id.tab2);
-        spec.setIndicator("Request");
+        spec.setIndicator("REQUEST");
+        //intent = new Intent(this, RequestActivity.class);
+        //spec.setContent(intent);
         host.addTab(spec);
 
         //Tab 3
         spec = host.newTabSpec("Pool");
         spec.setContent(R.id.tab3);
-        spec.setIndicator("Pool");
-        //extra to make activity separate
-        //Intent intent = new Intent(this, PoolActivity.class);
+        spec.setIndicator("POOL");
+        //intent = new Intent(this, PoolActivity.class);
         //spec.setContent(intent);
-        //end of extra
         host.addTab(spec);
 
+        host.setCurrentTab(1);
+        host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                // display the name of the tab whenever a tab is changed
+                Toast.makeText(getApplicationContext(), tabId, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
