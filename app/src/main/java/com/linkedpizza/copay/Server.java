@@ -26,7 +26,8 @@ class Server{
     private Server(){}
 
     protected void post(String url, String json) throws IOException {
-        SendJson sendJson = new SendJson(url, json);
+        SendJson sendJson = new SendJson(url+":80", json);
+        sendJson.execute();
     }
 
     protected String requestJson(String name, String email, String amount, String type, String reason) {
@@ -78,8 +79,11 @@ class Server{
                     .post(body)
                     .build();
             try {
+                System.out.println("post");
                 Response response = client.newCall(request).execute();
-                return response.body().string();
+
+                System.out.println("post: " + response.body().string());
+                return null;
             } catch (Exception e) {
                 System.out.println(e);
                 return null;
