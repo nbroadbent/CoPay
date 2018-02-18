@@ -1,5 +1,6 @@
 package com.linkedpizza.copay;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -39,6 +40,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        getSupportActionBar().hide();
+        
         ConstraintLayout cl = findViewById(R.id.cl);
         cl.setBackgroundColor(Color.parseColor("#ecf0f1"));
 
