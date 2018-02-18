@@ -2,6 +2,7 @@ package com.linkedpizza.copay;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -95,11 +96,13 @@ public class LoginActivity extends AppCompatActivity {
         Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
         mainActivity.putExtra("name",displayName);
         mainActivity.putExtra("email",email);
+        mainActivity.putExtra("photoURL",photoURL);
         Intent naviActivity = new Intent(getApplicationContext(), NavigationDrawer.class);
         startActivity(mainActivity);
     }
     String displayName;
     String email;
+    String photoURL;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -115,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 displayName = googleSignInAccount.getDisplayName();
                 email= googleSignInAccount.getEmail();
+                photoURL= googleSignInAccount.getPhotoUrl().toString();
 
                 //makeToast(displayName + ":" + email);
                 onLoginComplete();

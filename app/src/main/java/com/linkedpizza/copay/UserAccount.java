@@ -8,6 +8,7 @@ class UserAccount {
 
     private String name;
     private String email;
+    private String photoURL;
 
     UserAccount(String name, String email){
         this.name = name;
@@ -26,6 +27,13 @@ class UserAccount {
     }
     protected String getEmail(){
         return email;
+    }
+
+    protected void setPhotoURL(String photoURL){
+        this.photoURL = photoURL;
+    }
+    protected String getPhotoURL(){
+        return photoURL;
     }
 
     public String toString(){
