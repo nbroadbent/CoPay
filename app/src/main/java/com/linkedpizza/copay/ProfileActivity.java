@@ -17,6 +17,9 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_layout);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         String photoURL = getIntent().getExtras().getString("photoURL");
 
         ImageView profile = findViewById(R.id.profileView);
