@@ -75,7 +75,7 @@ class Server{
             // Send json to server.
             RequestBody body = RequestBody.create(JSON, json);
             Request request = new Request.Builder()
-                    .url(url + json)
+                    .url(url)
                     .post(body)
                     .build();
             try {

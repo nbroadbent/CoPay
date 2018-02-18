@@ -88,9 +88,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         photoURL=getIntent().getExtras().getString("photoURL");
         user = new UserAccount(name,email);
 
-        String json = server.requestJson(name, email, null, "usersData", null);
         try {
-            server.post("http://159.203.1.125:80/", json);
+            server.post("http://159.203.1.125/getUsersData.php", email);
         } catch (Exception e) {
             System.out.println(e);
         }
