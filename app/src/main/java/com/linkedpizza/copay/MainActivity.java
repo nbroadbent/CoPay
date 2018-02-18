@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     try {
                         String json = server.requestJson(name, email, "10", "informal", null);
                         System.out.println("json: " + json);
-                        server.post("https://159.203.1.125", json);
+                        server.post("http://159.203.1.125", json);
                     } catch (Exception e) {
                         System.out.println(e);
                     }

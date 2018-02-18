@@ -33,23 +33,6 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:id="@+id/tab1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#ffc916"
-                    android:orientation="vertical">
-                    android:background="#da8200"
-                    android:orientation="vertical"
-                    android:textAlignment="center">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="This is tab 1" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -64,13 +47,9 @@
 
                     <Button
                         android:id="@+id/server_test"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Need a few dollars?" />
-
-                    <Space
                         android:layout_width="match_parent"
-                        android:layout_height="105dp" />
+                        android:layout_height="wrap_content"
+                        android:text="Button" />
 
                     <EditText
                         android:id="@+id/amount"
@@ -89,6 +68,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Request Funds" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ffc916"
+                    android:orientation="vertical">
+                    android:background="#da8200"
+                    android:orientation="vertical"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="This is tab 1" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -142,6 +138,12 @@
             </FrameLayout>
         </LinearLayout>
     </TabHost>
+
+    <Space
+        android:layout_width="289dp"
+        android:layout_height="105dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="138dp" />
     <!--TabHost xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/tabHost"
         android:layout_width="fill_parent"
