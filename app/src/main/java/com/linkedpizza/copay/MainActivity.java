@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -95,6 +96,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .centerCrop()
                     .into(userImage);
         }
+        //Reference
+        //http://www.viralandroid.com/2015/09/simple-android-tabhost-and-tabwidget-example.html
+        //tabs
+        TabHost host = (TabHost)findViewById(R.id.tabHost);
+        host.setup();
+
+        //Tab 1
+        TabHost.TabSpec spec = host.newTabSpec("Donate");
+        spec.setContent(R.id.tab1);
+        spec.setIndicator("Donate");
+        host.addTab(spec);
+
+        //Tab 2
+        spec = host.newTabSpec("Request");
+        spec.setContent(R.id.tab2);
+        spec.setIndicator("Request");
+        host.addTab(spec);
+
+        //Tab 3
+        spec = host.newTabSpec("Pool");
+        spec.setContent(R.id.tab3);
+        spec.setIndicator("Pool");
+        host.addTab(spec);
 
     }
     @Override
