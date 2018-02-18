@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -31,17 +32,23 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private Server server;
+
     String email;
     String name;
     String photoURL;
     UserAccount user;
     Uri uri;
 
+    private Button request;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
+
+        server = server.getInstance();
 
         //creating a user account
         email=getIntent().getExtras().getString("email");
@@ -122,8 +129,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //end of extra
         host.addTab(spec);
 
+        request = (Button) findViewById(R.id.request);
 
-
+        if (request != null) {
+            request.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Make request to server.
+                    try {
+                        String json = server.requestJson(name, email, "10", "informal", null);
+                        System.out.println("json: " + json);
+                        server.post("https://159.203.1.125", json);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }
+            });
+        }
     }
     @Override
     public void onBackPressed() {

@@ -1,6 +1,8 @@
 package com.linkedpizza.copay;
 
 
+import android.os.AsyncTask;
+
 import java.io.IOException;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -12,7 +14,7 @@ import okhttp3.Response;
  * Created by MLH-Admin on 2/17/2018.
  */
 
-class Server {
+class Server{
 
     private static volatile Server instance = null;
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -23,17 +25,11 @@ class Server {
     // Singleton.
     private Server(){}
 
-    String post(String url, String json) throws IOException {
-        RequestBody body = RequestBody.create(JSON, json);
-        Request request = new Request.Builder()
-                .url(url)
-                .post(body)
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
+    protected void post(String url, String json) throws IOException {
+        SendJson sendJson = new SendJson(url, json);
     }
 
-    String requestJson(String name, String email, String amount, String type, String reason) {
+    protected String requestJson(String name, String email, String amount, String type, String reason) {
         return "{'type':" + type + ","
                 + "'amount':" + amount + ","
                 + "'reason':" + reason + ","
@@ -51,7 +47,7 @@ class Server {
         return bodyRespose;
     }
 
-    static Server getInstance(){
+    public static Server getInstance(){
         if (instance == null){
             synchronized (Server.class){
                 if (instance == null){
@@ -60,5 +56,34 @@ class Server {
             }
         }
         return instance;
+    }
+
+    private class SendJson extends AsyncTask<String, String, String> {
+
+        private String url;
+        private String json;
+
+        public SendJson(String url, String json) {
+            // Get json.
+            this.url = url;
+            this.json = json;
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            // Send json to server.
+            RequestBody body = RequestBody.create(JSON, json);
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(body)
+                    .build();
+            try {
+                Response response = client.newCall(request).execute();
+                return response.body().string();
+            } catch (Exception e) {
+                System.out.println(e);
+                return null;
+            }
+        }
     }
 }

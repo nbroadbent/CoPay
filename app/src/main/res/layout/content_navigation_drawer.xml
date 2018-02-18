@@ -38,6 +38,25 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#da8200"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="92dp"
+                        android:text="This is tab 2" />
+
+                    <Button
+                        android:id="@+id/request"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Request Funds" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -49,19 +68,6 @@
                         android:layout_height="match_parent"
                         android:text="This is tab 1" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tab2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#da8200"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="This is tab 2" />
                 </LinearLayout>
 
                 <LinearLayout
