@@ -14,7 +14,7 @@ import org.json.JSONException;
 
 import java.math.BigDecimal;
 
-import static com.linkedpizza.copay.config.config.PAYPAL_CLIENT_ID;
+import static com.linkedpizza.copay.Config.PAYPAL_CLIENT_ID;
 
 public class RequestActivity extends AppCompatActivity {
     private static final int PAYPAL_REQUEST_CODE  = 7171;
