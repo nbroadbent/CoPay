@@ -39,11 +39,11 @@ public class TopContributorAdapter extends ArrayAdapter<UserAccount> {
 
         ((TextView) rowView.findViewById(R.id.txtNumber)).setText("#" + (position + 1));
 
-        if (user.getPhotoURL() != null) {
-            Picasso.with(rowView.getContext()).load(user.getPhotoURL()).into((ImageView) rowView.findViewById(R.id.imgUser));
-        } else {
-            ((ImageView) rowView.findViewById(R.id.imgUser)).setImageResource(R.drawable.icon);
-        }
+        //if (user.getPhotoURL() != null) {
+         //   Picasso.with(rowView.getContext()).load(user.getPhotoURL()).into((ImageView) rowView.findViewById(R.id.imgUser));
+        //} else {
+            ((ImageView) rowView.findViewById(R.id.imgUser)).setImageResource(R.drawable.muslim);
+        //}
         ((TextView) rowView.findViewById(R.id.txtName)).setText(user.getName());
 
         // Return the completed view to render on screen
