@@ -128,7 +128,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //spec.setContent(intent);
         host.addTab(spec);
 
-<<<<<<< HEAD
         request = (Button) findViewById(R.id.request);
 
         if (request != null) {
@@ -146,8 +145,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
         }
-=======
->>>>>>> 00e2c9ad508c6ac9b2d59c04a5bfcfbdde243eb4
         host.setCurrentTab(1);
         host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
@@ -166,7 +163,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TopContributorAdapter adapter = new TopContributorAdapter(getApplicationContext(), users);
         ((ListView) findViewById(R.id.lstTopContributors)).setAdapter(adapter);
 
-<<<<<<< HEAD
         for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
             TextView tv = (TextView) host.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
             tv.setTextColor(Color.parseColor("#ecf0f1"));
@@ -180,10 +176,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         host.getTabWidget().getChildAt(host.getCurrentTab())
                 .setBackgroundColor(Color.parseColor("#95a5a6")); // selected
-=======
         setTitle("Pool Funds:"); // add pool funds
 
->>>>>>> 00e2c9ad508c6ac9b2d59c04a5bfcfbdde243eb4
     }
     @Override
     public void onBackPressed() {
