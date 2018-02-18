@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CoPay.iml" filepath="$PROJECT_DIR$/CoPay.iml" />
+      <module fileurl="file://C:\Users\whtit\Documents\GitHub\CoPay\CoPay.iml" filepath="C:\Users\whtit\Documents\GitHub\CoPay\CoPay.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\whtit\Documents\GitHub\CoPay\app\app.iml" filepath="C:\Users\whtit\Documents\GitHub\CoPay\app\app.iml" />
     </modules>
   </component>
 </project>
