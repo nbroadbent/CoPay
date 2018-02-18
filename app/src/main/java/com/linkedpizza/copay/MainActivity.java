@@ -240,7 +240,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            Intent startMain = new Intent(Intent.ACTION_MAIN);
+            startMain.addCategory(Intent.CATEGORY_HOME);
+            startActivity(startMain);
         }
     }
 
@@ -362,5 +364,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         protected void onPostExecute(Long result) {
             //showDialog("Downloaded " + result + " bytes");
         }
+
+
     }
 }
