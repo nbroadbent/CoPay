@@ -140,12 +140,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<UserAccount> users = new ArrayList<UserAccount>();
 
         for (int i = 0; i < 10; i++) {
-            users.add(new UserAccount("David Goguen", "dgogu058@uottawa.ca"));
+            users.add(user);
         }
 
         TopContributorAdapter adapter = new TopContributorAdapter(getApplicationContext(), users);
         ((ListView) findViewById(R.id.lstTopContributors)).setAdapter(adapter);
 
+        setTitle("Pool Funds:"); // add pool funds
 
     }
     @Override
