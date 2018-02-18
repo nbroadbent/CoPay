@@ -8,4 +8,10 @@
     tools:context="com.linkedpizza.copay.NavigationDrawer"
     tools:showIn="@layout/app_bar_navigation_drawer">
 
+    <ImageView
+        android:id="@+id/testImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
 </android.support.constraint.ConstraintLayout>
