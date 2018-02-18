@@ -118,7 +118,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 displayName = googleSignInAccount.getDisplayName();
                 email= googleSignInAccount.getEmail();
-                photoURL= googleSignInAccount.getPhotoUrl().toString();
+                
+                if (googleSignInAccount.getPhotoUrl() != null)
+                    photoURL= googleSignInAccount.getPhotoUrl().toString();
 
                 //makeToast(displayName + ":" + email);
                 onLoginComplete();
