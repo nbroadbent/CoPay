@@ -1,12 +1,16 @@
 package com.linkedpizza.copay;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -34,8 +38,12 @@ public class TopContributorAdapter extends ArrayAdapter<UserAccount> {
         UserAccount user = users.get(position);
 
         ((TextView) rowView.findViewById(R.id.txtNumber)).setText("#" + (position + 1));
-        //((ImageView) rowView.findViewById(R.id.imgUser)).setImageBitmap();
 
+        if (user.getPhotoURL() != null) {
+            Picasso.with(rowView.getContext()).load(user.getPhotoURL()).into((ImageView) rowView.findViewById(R.id.imgUser));
+        } else {
+            ((ImageView) rowView.findViewById(R.id.imgUser)).setImageResource(R.drawable.icon);
+        }
         ((TextView) rowView.findViewById(R.id.txtName)).setText(user.getName());
 
         // Return the completed view to render on screen

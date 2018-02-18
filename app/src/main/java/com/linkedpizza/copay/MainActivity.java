@@ -2,8 +2,6 @@ package com.linkedpizza.copay;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
@@ -18,7 +16,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -37,23 +34,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Server server;
-
     String email;
     String name;
     String photoURL;
     UserAccount user;
     Uri uri;
 
-    private Button request;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
-
-        server = server.getInstance();
 
         //creating a user account
         email=getIntent().getExtras().getString("email");
@@ -108,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Reference
         //http://www.viralandroid.com/2015/09/simple-android-tabhost-and-tabwidget-example.html
         //tabs
-        final TabHost host = (TabHost)findViewById(R.id.tabHost);
+        TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
         TabHost.TabSpec spec;
         Intent intent; // Reusable Intent for each tab
@@ -137,68 +128,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //spec.setContent(intent);
         host.addTab(spec);
 
-<<<<<<< HEAD
-        request = (Button) findViewById(R.id.request);
-
-        if (request != null) {
-            request.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Make request to server.
-                    try {
-                        String json = server.requestJson(name, email, "10", "informal", null);
-                        System.out.println("json: " + json);
-                        server.post("https://159.203.1.125", json);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
-                }
-            });
-        }
-=======
         host.setCurrentTab(1);
         host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
                 // display the name of the tab whenever a tab is changed
                 Toast.makeText(getApplicationContext(), tabId, Toast.LENGTH_SHORT).show();
-                for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
-                    host.getTabWidget().getChildAt(i)
-                            .setBackgroundColor(Color.parseColor("#2c3e50")); // unselected
-                }
-
-                host.getTabWidget().getChildAt(host.getCurrentTab())
-                        .setBackgroundColor(Color.parseColor("#95a5a6")); // selected
-
-
             }
         });
 
         ArrayList<UserAccount> users = new ArrayList<UserAccount>();
 
         for (int i = 0; i < 10; i++) {
-            users.add(new UserAccount("David Goguen", "dgogu058@uottawa.ca"));
+            users.add(user);
         }
 
         TopContributorAdapter adapter = new TopContributorAdapter(getApplicationContext(), users);
         ((ListView) findViewById(R.id.lstTopContributors)).setAdapter(adapter);
 
-        for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
-            TextView tv = (TextView) host.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
-            tv.setTextColor(Color.parseColor("#ecf0f1"));
-            tv.setTextSize(16);
-            tv.setTypeface(Typeface.SANS_SERIF);
-        }
-        for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
-            host.getTabWidget().getChildAt(i)
-                    .setBackgroundColor(Color.parseColor("#2c3e50")); // unselected
-        }
+        setTitle("Pool Funds:"); // add pool funds
 
-        host.getTabWidget().getChildAt(host.getCurrentTab())
-                .setBackgroundColor(Color.parseColor("#95a5a6")); // selected
-
-
->>>>>>> ad3ed2f8dffa25ff83649ba5190df06e3e762e0a
     }
     @Override
     public void onBackPressed() {
