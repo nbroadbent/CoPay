@@ -8,29 +8,35 @@
     tools:context="com.linkedpizza.copay.LoginActivity"
     tools:layout_editor_absoluteY="81dp">
 
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="306dp"
-        android:layout_height="389dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="16dp"
-        android:adjustViewBounds="false"
-        android:backgroundTint="@android:color/white"
-        android:scaleType="fitCenter"
-        android:src="@drawable/icon2"
-        app:layout_constraintBottom_toTopOf="@+id/sign_in_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="228dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="43dp"
-        android:layout_marginStart="66dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv" />
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="match_parent"
+            android:layout_height="389dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="false"
+            android:backgroundTint="@android:color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon2"
+            app:layout_constraintBottom_toTopOf="@+id/sign_in_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

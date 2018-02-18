@@ -85,9 +85,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if(photoURL!=null){
             user.setPhotoURL(photoURL);
-            ImageView img = (ImageView) findViewById(R.id.testImage);
-
-            Picasso.with(MainActivity.this).load(photoURL).into(img);
 
             ImageView userImage = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.profilePicture);
 
