@@ -55,8 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             .clientId(com.linkedpizza.copay.Config.PAYPAL_CLIENT_ID);
 
     private Server server;
-    private Button request;
-    Button btpay;
+    Button btnDonate;
     EditText edamount;
     String amount ;
     String email;
@@ -100,10 +99,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startService(intent);
 
 
-        btpay = (Button) findViewById(R.id.request);
+        btnDonate = (Button) findViewById(R.id.btnDonate);
         edamount = (EditText) findViewById(R.id.amount);
 
-        btpay.setOnClickListener(new View.OnClickListener() {
+        btnDonate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -159,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Tab 1
         spec = host.newTabSpec("Donate");
         spec.setContent(R.id.tab1);
-        spec.setIndicator("DONATE");
+        spec.setIndicator("POOL");
         //intent = new Intent(this, DonateActivity.class);
         //spec.setContent(intent);
         host.addTab(spec);
@@ -167,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Tab 2
         spec = host.newTabSpec("Request");
         spec.setContent(R.id.tab2);
-        spec.setIndicator("REQUEST");
+        spec.setIndicator("DONATE");
         //intent = new Intent(this, RequestActivity.class);
         //spec.setContent(intent);
         host.addTab(spec);
@@ -175,29 +174,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Tab 3
         spec = host.newTabSpec("Pool");
         spec.setContent(R.id.tab3);
-        spec.setIndicator("POOL");
+        spec.setIndicator("REQUEST");
         //intent = new Intent(this, PoolActivity.class);
         //spec.setContent(intent);
         host.addTab(spec);
 
-        request = (Button) findViewById(R.id.server_test);
-
-        if (request != null) {
-            request.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Make request to server.
-                    try {
-                        String json = server.requestJson(name, email, "10", "informal", null);
-                        System.out.println("json: " + json);
-                        server.post("https://159.203.1.125", json);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
-                }
-            });
-        }
-        host.setCurrentTab(1);
+        host.setCurrentTab(0);
         host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {

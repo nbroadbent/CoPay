@@ -25,74 +25,60 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></TabWidget>
+                android:layout_height="wrap_content">
+
+            </TabWidget>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:id="@+id/tab1"
+                <RelativeLayout
+                    android:id="@+id/tab2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#5b89ff"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="92dp"
-                        android:text="This is tab 2" />
-
-                    <Button
-                        android:id="@+id/server_test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Need a few dollars?" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="105dp" />
+                        android:layout_above="@+id/amount"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="35dp"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="50dp"
+                        android:text="Make a donation to the pool fund. Even a dollar can make a difference to someone who needs it." />
 
                     <EditText
                         android:id="@+id/amount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_above="@+id/btnDonate"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="bottom"
+                        android:layout_marginEnd="50dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="30dp"
                         android:ems="10"
                         android:hint="Amount"
                         android:inputType="numberDecimal" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="71dp" />
-
                     <Button
-                        android:id="@+id/request"
+                        android:id="@+id/btnDonate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Request Funds" />
-                </LinearLayout>
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="130dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="30dp"
+                        android:text="Donate" />
+                </RelativeLayout>
 
                 <LinearLayout
-                    android:id="@+id/tab2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#ffc916"
-                    android:orientation="vertical">
-                    android:background="#da8200"
-                    android:orientation="vertical"
-                    android:textAlignment="center">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="This is tab 1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tab3"
+                    android:id="@+id/tab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -114,6 +100,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/colorPrimary"
                         android:paddingBottom="10dp"
+                        android:paddingStart="10dp"
                         android:paddingTop="10dp"
                         android:text="Average Contribution Value:"
                         android:textColor="@android:color/white"
@@ -126,8 +113,8 @@
                         android:layout_marginTop="3dp"
                         android:background="@color/colorPrimaryDark"
                         android:paddingBottom="10dp"
-                        android:paddingStart="10dp"
                         android:paddingLeft="10dp"
+                        android:paddingStart="10dp"
                         android:paddingTop="10dp"
                         android:text="Top Contributors:"
                         android:textColor="@android:color/white" />
@@ -136,6 +123,23 @@
                         android:id="@+id/lstTopContributors"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ffc916"
+                    android:orientation="vertical">
+                    android:background="#da8200"
+                    android:orientation="vertical"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="This is tab 1" />
 
                 </LinearLayout>
 
