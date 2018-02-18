@@ -1,5 +1,6 @@
 package com.linkedpizza.copay;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -15,20 +16,30 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Config;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalPayment;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
+import com.paypal.android.sdk.payments.PaymentConfirmation;
 import com.squareup.picasso.Downloader;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+import org.json.JSONException;
+
+import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -37,14 +48,27 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final int PAYPAL_REQUEST_CODE  = 7171;
+
+    private static PayPalConfiguration config = new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
+            .clientId(com.linkedpizza.copay.Config.PAYPAL_CLIENT_ID);
+
     private Server server;
     private Button request;
+    Button btpay;
+    EditText edamount;
+    String amount ;
     String email;
     String name;
     String photoURL;
     UserAccount user;
     Uri uri;
 
+    protected void onDestroy(){
+
+        stopService(new Intent(this,PayPalService.class));
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +89,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //from navigation drawer sample code
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = new Intent(this,PayPalService.class);
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION,config);
+        startService(intent);
+
+
+        btpay = (Button) findViewById(R.id.request);
+        edamount = (EditText) findViewById(R.id.amount);
+
+        btpay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                processPayment();
+            }
+        });
 
 //        FloatingActionButton fab
 // = (FloatingActionButton) findViewById(R.id.fab);
@@ -109,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
         TabHost.TabSpec spec;
-        Intent intent; // Reusable Intent for each tab
+        //Intent intent; // Reusable Intent for each tab
 
         //Tab 1
         spec = host.newTabSpec("Donate");
@@ -135,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //spec.setContent(intent);
         host.addTab(spec);
 
-        request = (Button) findViewById(R.id.request);
+        request = (Button) findViewById(R.id.server_test);
 
         if (request != null) {
             request.setOnClickListener(new View.OnClickListener() {
@@ -241,6 +281,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void processPayment() {
+        amount = edamount.getText().toString();
+        System.out.println("amount: " +  amount);
+        PayPalPayment palPayment = new PayPalPayment(new BigDecimal(String.valueOf(amount)), "USD", "Donate" ,PayPalPayment.PAYMENT_INTENT_SALE );
+        Intent intent = new Intent(this, PaymentActivity.class);
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+        intent.putExtra(PaymentActivity.EXTRA_PAYMENT,palPayment);
+        startActivityForResult(intent,PAYPAL_REQUEST_CODE);
+    }
+    protected void onActivityResult (int requestcode, int resultcode, Intent data){
+
+        if (requestcode == PAYPAL_REQUEST_CODE){
+
+            if (resultcode == RESULT_OK){
+
+                PaymentConfirmation confirmation = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+                if (confirmation != null){
+
+                    try{
+                        String paymentDetails = confirmation.toJSONObject().toString(4);
+                        startActivity(new Intent (this, PaymentDetails.class)
+
+                                .putExtra("Payment Details",paymentDetails)
+                                .putExtra("Payment Amount",amount)  ) ;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else if (resultcode == Activity.RESULT_CANCELED ){
+                    Toast.makeText(this,"cancel ", Toast.LENGTH_SHORT).show();
+                }else  if (resultcode == PaymentActivity.RESULT_EXTRAS_INVALID){
+                    Toast.makeText(this,"invalild",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
     }
 
     private void makeToast(String s){

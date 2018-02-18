@@ -46,29 +46,29 @@
                         android:text="This is tab 2" />
 
                     <Button
-                        android:id="@+id/request"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/server_test"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Need a few dollars?" />
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="264dp" />
+                        android:layout_height="105dp" />
 
                     <EditText
-                        android:id="@+id/amount2"
+                        android:id="@+id/amount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Amount:" />
+                        android:hint="Amount"
+                        android:inputType="textPersonName" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="71dp" />
 
                     <Button
-                        android:id="@+id/request2"
+                        android:id="@+id/request"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Request Funds" />
