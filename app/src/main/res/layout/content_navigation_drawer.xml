@@ -34,6 +34,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtDailyContributions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:paddingLeft="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Average Daily Contributions:"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txtAverageContributionValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Average Contribution Value:"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txtTopContributors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Top Contributors:"
+                        android:textColor="@android:color/white" />
+
+                    <ListView
+                        android:id="@+id/lstTopContributors"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
                 <RelativeLayout
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
@@ -93,61 +144,9 @@
                 </RelativeLayout>
 
                 <LinearLayout
-                    android:id="@+id/tab1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtDailyContributions"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/colorPrimary"
-                        android:paddingStart="10dp"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="10dp"
-                        android:text="Average Daily Contributions:"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/txtAverageContributionValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/colorPrimary"
-                        android:paddingBottom="10dp"
-                        android:paddingStart="10dp"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="10dp"
-                        android:text="Average Contribution Value:"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/txtTopContributors"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:background="@color/colorPrimaryDark"
-                        android:paddingBottom="10dp"
-                        android:paddingLeft="10dp"
-                        android:paddingStart="10dp"
-                        android:paddingTop="10dp"
-                        android:text="Top Contributors:"
-                        android:textColor="@android:color/white" />
-
-                    <ListView
-                        android:id="@+id/lstTopContributors"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/tab3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#ffc916"
                     android:orientation="vertical">
                     android:background="#da8200"
                     android:orientation="vertical"
