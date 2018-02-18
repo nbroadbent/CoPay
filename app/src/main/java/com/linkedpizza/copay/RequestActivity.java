@@ -75,10 +75,10 @@ public class RequestActivity extends AppCompatActivity {
 
                     try{
                         String paymentDetails = confirmation.toJSONObject().toString(4);
+                        System.out.println("pd before: " + paymentDetails);
                         startActivity(new Intent (this, PaymentDetails.class)
-
-                                .putExtra("Payment Details",paymentDetails)
-                                .putExtra("Payment Amount",amount)  ) ;
+                                .putExtra("PaymentDetails", paymentDetails)
+                                .putExtra("PaymentAmount", amount)  ) ;
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

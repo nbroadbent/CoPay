@@ -5,5 +5,5 @@ package com.linkedpizza.copay;
  */
 
 public class Config {
-    public static final  String PAYPAL_CLIENT_ID = "Af0-IeaXtdYJd6U51hYvlhgIa2rM0Qw96rjAlapbaObqJuPGuRoyzil4h3IwQZsgxJ-E_WITYGl2r3Y_";
+    public static final  String PAYPAL_CLIENT_ID = "AeXRZlwWrp0dvAsfaFPMhdOq3nxQMKvmmWyht_8CUvkRXCGc8BpRB8QtAMazro3bV41syrBc_JT4jlSY";
 }

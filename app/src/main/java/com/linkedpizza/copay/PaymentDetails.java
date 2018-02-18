@@ -4,11 +4,16 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.paypal.android.sdk.payments.*;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PaymentDetails extends AppCompatActivity {
+
+    private String paymentDetails = null;
     TextView txtid, txtamt, txtstatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,16 +24,39 @@ public class PaymentDetails extends AppCompatActivity {
         txtamt = (TextView) findViewById(R.id.txtamt);
         txtstatus = (TextView) findViewById(R.id.txtstatus);
 
-        Intent intent = getIntent();
-        try {
+        // Retrieve state from intent.
+        Bundle extras = getIntent().getExtras();
 
-            JSONObject jsonObject = new JSONObject( intent.getStringExtra("PaymentDetails") );
+        if (extras.getString("PaymentDetails") != null) {
+            System.out.println("PD: " + extras.getString("PaymentDetails"));
+            paymentDetails = extras.getString("PaymentDetails");
+        } else {
+            System.out.println("PD: is null");
+            System.out.println("check 1");
+            onPaymentFailure();
+            return;
+        }
+
+        try {
+            JSONObject jsonObject = new JSONObject(paymentDetails);
+            onPaymentSuccess();
         } catch (JSONException e) {
+            System.out.println("check 2");
+            onPaymentFailure();
             e.printStackTrace();
         }
 
     }
 
+    private void onPaymentSuccess() {
+        Toast.makeText(getApplicationContext(), "Donation Successful!",Toast.LENGTH_LONG).show();
+        finish();
+    }
+
+    private void onPaymentFailure() {
+        Toast.makeText(getApplicationContext(), "Donation Failed!",Toast.LENGTH_LONG).show();
+        finish();
+    }
 
     private void showDetails(JSONObject response ,String paymentAmount){
 
