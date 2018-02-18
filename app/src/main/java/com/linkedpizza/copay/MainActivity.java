@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
 
+        Intent intent; // Reusable Intent for each tab
+
         //Tab 1
         TabHost.TabSpec spec = host.newTabSpec("Donate");
         spec.setContent(R.id.tab1);
