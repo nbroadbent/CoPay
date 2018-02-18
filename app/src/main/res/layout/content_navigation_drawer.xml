@@ -34,28 +34,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-<<<<<<< HEAD
-                <LinearLayout
-=======
                 <RelativeLayout
->>>>>>> 50fec006add7e1e074c3a4a7e2cb613b333d944b
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/textView2"
-<<<<<<< HEAD
-                        android:layout_width="match_parent"
-                        android:layout_height="92dp"
-                        android:text="This is tab 2" />
-
-                    <Button
-                        android:id="@+id/server_test"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Button" />
-=======
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_above="@+id/amount"
@@ -64,7 +49,6 @@
                         android:layout_marginStart="35dp"
                         android:layout_marginTop="50dp"
                         android:text="Make a donation to the pool fund. Even a dollar can make a difference to someone who needs it." />
->>>>>>> 50fec006add7e1e074c3a4a7e2cb613b333d944b
 
                     <EditText
                         android:id="@+id/amount"
@@ -95,26 +79,6 @@
 
                 <LinearLayout
                     android:id="@+id/tab1"
-<<<<<<< HEAD
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#ffc916"
-                    android:orientation="vertical">
-                    android:background="#da8200"
-                    android:orientation="vertical"
-                    android:textAlignment="center">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="This is tab 1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tab3"
-=======
->>>>>>> 50fec006add7e1e074c3a4a7e2cb613b333d944b
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -182,12 +146,6 @@
             </FrameLayout>
         </LinearLayout>
     </TabHost>
-
-    <Space
-        android:layout_width="289dp"
-        android:layout_height="105dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="138dp" />
     <!--TabHost xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/tabHost"
         android:layout_width="fill_parent"
