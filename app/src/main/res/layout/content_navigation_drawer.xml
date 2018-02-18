@@ -36,17 +36,23 @@
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+<<<<<<< HEAD
+                    android:background="#da8200"
+=======
                     android:background="#5b89ff"
+>>>>>>> ad3ed2f8dffa25ff83649ba5190df06e3e762e0a
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="match_parent"
+<<<<<<< HEAD
                         android:layout_height="92dp"
                         android:text="This is tab 2" />
 
                     <Button
                         android:id="@+id/request"
+=======
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:text="Need a few dollars?" />
@@ -69,6 +75,7 @@
 
                     <Button
                         android:id="@+id/request2"
+>>>>>>> ad3ed2f8dffa25ff83649ba5190df06e3e762e0a
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Request Funds" />
@@ -78,11 +85,14 @@
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+<<<<<<< HEAD
                     android:background="#ffc916"
                     android:orientation="vertical">
+=======
                     android:background="#da8200"
                     android:orientation="vertical"
                     android:textAlignment="center">
+>>>>>>> ad3ed2f8dffa25ff83649ba5190df06e3e762e0a
 
                     <TextView
                         android:layout_width="match_parent"
