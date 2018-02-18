@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -36,17 +37,23 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private Server server;
+
     String email;
     String name;
     String photoURL;
     UserAccount user;
     Uri uri;
 
+    private Button request;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
+
+        server = server.getInstance();
 
         //creating a user account
         email=getIntent().getExtras().getString("email");
@@ -130,6 +137,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //spec.setContent(intent);
         host.addTab(spec);
 
+<<<<<<< HEAD
+        request = (Button) findViewById(R.id.request);
+
+        if (request != null) {
+            request.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Make request to server.
+                    try {
+                        String json = server.requestJson(name, email, "10", "informal", null);
+                        System.out.println("json: " + json);
+                        server.post("https://159.203.1.125", json);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }
+            });
+        }
+=======
         host.setCurrentTab(1);
         host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
@@ -172,6 +198,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .setBackgroundColor(Color.parseColor("#95a5a6")); // selected
 
 
+>>>>>>> ad3ed2f8dffa25ff83649ba5190df06e3e762e0a
     }
     @Override
     public void onBackPressed() {
