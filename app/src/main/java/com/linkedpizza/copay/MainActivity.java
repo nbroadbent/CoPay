@@ -20,6 +20,7 @@ import android.util.Config;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -72,6 +73,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //full screen
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
 
@@ -84,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         user = new UserAccount(name,email);
 
         makeToast("Welcome" +"\n" + user.toString());
-        makeToast(photoURL);
+        //makeToast(photoURL);
 
         //from navigation drawer sample code
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -197,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onTabChanged(String tabId) {
                 // display the name of the tab whenever a tab is changed
-                Toast.makeText(getApplicationContext(), tabId, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), tabId, Toast.LENGTH_SHORT).show();
                 for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
                     host.getTabWidget().getChildAt(i)
                             .setBackgroundColor(Color.parseColor("#2c3e50")); // unselected
@@ -240,7 +245,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            Intent startMain = new Intent(Intent.ACTION_MAIN);
+            startMain.addCategory(Intent.CATEGORY_HOME);
+            startActivity(startMain);
         }
     }
 
@@ -274,11 +281,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_logout) {
             logout();
-        } else if (id == R.id.nav_gallery) {
+        }
+        else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
+            Intent i = new Intent(getApplicationContext(),ProfileActivity.class);
+            i.putExtra("photoURL",photoURL);
+            startActivity(i);
 
         } else if (id == R.id.nav_share) {
 
@@ -358,5 +369,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         protected void onPostExecute(Long result) {
             //showDialog("Downloaded " + result + " bytes");
         }
+
+
     }
 }
