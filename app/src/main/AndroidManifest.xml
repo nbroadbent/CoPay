@@ -31,7 +31,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PoolActivity" />
         <activity android:name=".DonateActivity" />
-        <activity android:name=".RequestActivity"></activity>
+        <activity android:name=".RequestActivity" />
+        <activity android:name=".PaymentDetails"></activity>
     </application>
 
 </manifest>
