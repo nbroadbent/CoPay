@@ -106,7 +106,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
 
-                processPayment();
+                if (edamount.getText().toString().isEmpty() || Double.parseDouble(edamount.getText().toString()) == 0) {
+                    Toast.makeText(getApplicationContext(), "Amount to donate must be greater than 0", Toast.LENGTH_LONG).show();
+                } else {
+                    processPayment();
+                }
             }
         });
 
@@ -179,28 +183,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //spec.setContent(intent);
         host.addTab(spec);
 
-<<<<<<< HEAD
-        request = (Button) findViewById(R.id.server_test);
-
-        if (request != null) {
-            request.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Make request to server.
-                    try {
-                        String json = server.requestJson(name, email, "10", "informal", null);
-                        System.out.println("json: " + json);
-                        server.post("http://159.203.1.125", json);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
-                }
-            });
-        }
-        host.setCurrentTab(1);
-=======
         host.setCurrentTab(0);
->>>>>>> 50fec006add7e1e074c3a4a7e2cb613b333d944b
         host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
