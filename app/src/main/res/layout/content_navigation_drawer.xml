@@ -40,10 +40,32 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/textView2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="This is tab 1" />
+                        android:layout_height="wrap_content"
+                        android:text="Need a few dollars?" />
 
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="264dp" />
+
+                    <EditText
+                        android:id="@+id/amount2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="Amount:" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="71dp" />
+
+                    <Button
+                        android:id="@+id/request2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Request Funds" />
                 </LinearLayout>
 
                 <LinearLayout
