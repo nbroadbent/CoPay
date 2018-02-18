@@ -26,7 +26,7 @@ class Server{
     private Server(){}
 
     protected void post(String url, String json) throws IOException {
-        SendJson sendJson = new SendJson(url+":80", json);
+        SendJson sendJson = new SendJson(url+":80/q?", json);
         sendJson.execute();
     }
 
