@@ -1,5 +1,6 @@
 package com.linkedpizza.copay;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -134,8 +135,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_logout) {
+            logout();
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -155,6 +156,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void makeToast(String s){
         Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+    }
+    private void logout(){
+        // Get confirmation
+        Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(loginIntent);
+        makeToast("logout");
+        finish();
     }
 
     private class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
