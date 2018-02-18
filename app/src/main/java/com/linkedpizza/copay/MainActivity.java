@@ -106,7 +106,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
 
-                processPayment();
+                if (edamount.getText().toString().isEmpty() || Double.parseDouble(edamount.getText().toString()) == 0) {
+                    Toast.makeText(getApplicationContext(), "Amount to donate must be greater than 0", Toast.LENGTH_LONG).show();
+                } else {
+                    processPayment();
+                }
             }
         });
 
