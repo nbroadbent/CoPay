@@ -118,7 +118,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         spec = host.newTabSpec("Pool");
         spec.setContent(R.id.tab3);
         spec.setIndicator("Pool");
+        //extra to make activity separate
+        //Intent intent = new Intent(this, PoolActivity.class);
+        //spec.setContent(intent);
+        //end of extra
         host.addTab(spec);
+
+
 
     }
     @Override
